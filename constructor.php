@@ -16,8 +16,6 @@ class Produk
        $this->penulis  =  $penulis  ;      
        $this->penerbit =  $penerbit ;    
        $this->harga    =    $harga  ;    
-
-
    }
 
    public function getLabel()
