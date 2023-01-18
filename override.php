@@ -11,7 +11,7 @@ class Produk
   
 
    //method ini akan otomatis panggil ketika kita instance class
-   public function __construct($judul, $penulis ,$penerbit, $harga, $halaman, $durasi)
+   public function __construct($judul, $penulis ,$penerbit, $harga)
    {
        $this->judul    =    $judul  ;    
        $this->penulis  =    $penulis  ;      
@@ -32,13 +32,19 @@ class Produk
       //this, mengacu pada property yang ada diluar method
       return "{$this->getLabel()}, {$this->penerbit} (Rp. {$this->harga}) ";
    }
-
-
   
 }
 
 class Game extends Produk 
 { 
+   public $durasi;
+   public function __construct($judul, $penulis ,$penerbit, $harga, $durasi)
+   {
+      //ini memanggil __construct di parent, yang berupa $this->judul dll
+     parent::__construct($judul, $penulis ,$penerbit, $harga);
+     $this->durasi = $durasi;
+
+   }
    
    public function getInfoProduk()
   {
@@ -47,15 +53,19 @@ class Game extends Produk
        return $str;
       
   } 
-   // public function cetak()
-   // {
-   //   echo "{$this->judul} | {$this->getLabel()} ( Rp. {$this->harga}) ~ {$this->durasi} Jam";
-   // }
-      
+       
 }
 
 class Komik extends Produk 
 {  
+   public $halaman;
+   public function __construct($judul, $penulis ,$penerbit, $harga, $halaman)
+   {
+      //ini memanggil __construct di parent, yang berupa $this->judul dll
+     parent::__construct($judul, $penulis ,$penerbit, $harga);
+     $this->halaman = $halaman;
+
+   }
   public function getInfoProduk()
   {
    // parent akan mengacu pada class produk, sehingga bukan mengacu pada function ini
@@ -79,8 +89,10 @@ class CetakInfoProduk
    }
 }
 
-$produk1 = new Game("Naruto", "Mashashi", "Shounen Jump", 10000, 0, "100");
-$produk2 = new Komik("Mobile Legend", "Justin Yuan", "Moonton", 40000, "50", 0);
+
+//untuk ini, ia akan mengirimkan var ke fungsi yang ada constructnya, pertama ke class game dulu ketika tidak ada baru ke parentnya atua produk
+$produk1 = new Game("Naruto", "Mashashi", "Shounen Jump", 10000, 50);
+$produk2 = new Komik("Mobile Legend", "Justin Yuan", "Moonton", 40000, 100);
 
 
 
