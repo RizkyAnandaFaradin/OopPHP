@@ -7,9 +7,8 @@ class Produk
    public $judul, 
           $penulis, 
           $penerbit, 
-          $harga,
-          $durasi,
-          $halaman;
+          $harga;
+  
 
    //method ini akan otomatis panggil ketika kita instance class
    public function __construct($judul, $penulis ,$penerbit, $harga, $halaman, $durasi)
@@ -18,10 +17,7 @@ class Produk
        $this->penulis  =    $penulis  ;      
        $this->penerbit =    $penerbit ;    
        $this->harga    =    $harga  ;    
-       $this->halaman  =    $halaman  ;    
-       $this->durasi   =    $durasi  ;    
-
-
+ 
    }
 
    public function getLabel()
