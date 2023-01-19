@@ -31,9 +31,6 @@ abstract class Produk
       return "$this->judul | $this->penulis";
    }
       
-
-
-   
    public function getInfo()
    {
       //this, mengacu pada property yang ada diluar method
