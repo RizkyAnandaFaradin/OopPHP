@@ -3,11 +3,16 @@
 //membuat class abstract produk yang tidak bisa di instancesiasi
 abstract class Produk 
 {
+
+   //class yang punya abstract, harus punya method abstract di dalamnya
+   abstract public function getInfoProduk();
+
+
    //membuat beberapa property
-   public $judul, 
-          $penulis, 
-          $penerbit, 
-          $harga;
+   private $judul, 
+           $penulis, 
+           $penerbit, 
+           $harga;
   
 
    //method ini akan otomatis panggil ketika kita instance class
@@ -27,8 +32,7 @@ abstract class Produk
    }
 
    
-   //class yang punya abstract, harus punya method abstract di dalamnya
-   abstract public function getInfoProduk();
+
    
    
    public function getInfo()
