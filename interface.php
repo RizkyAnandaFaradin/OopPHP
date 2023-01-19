@@ -2,6 +2,7 @@
 interface InfoProduk{
   public function getInfoProduk();
 }
+
 //membuat class abstract produk yang tidak bisa di instancesiasi
 abstract class Produk 
 {
